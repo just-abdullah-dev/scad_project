@@ -14,6 +14,7 @@ async function fetchRepos() {
             }
         });
         const repos = await response.json();
+        console.log(repos)
 
         repos.forEach(repo => {
             const repoCard = document.createElement('div');
@@ -62,6 +63,7 @@ async function fetchIssues() {
             }
         });
         const issues = await response.json();
+        console.log(issues)
 
         issuesContainer.innerHTML = '';
 
