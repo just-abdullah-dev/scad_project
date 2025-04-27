@@ -1,0 +1,89 @@
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+  }
+  
+  .metric-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+  }
+  
+  .metric-card {
+    text-align: center;
+    padding: 20px;
+    border-radius: var(--border-radius);
+    color: white;
+  }
+  
+  .metric-card.primary {
+    background-color: var(--primary);
+  }
+  
+  .metric-card.success {
+    background-color: var(--success);
+  }
+  
+  .metric-card.warning {
+    background-color: var(--warning);
+  }
+  
+  .metric-value {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin: 10px 0;
+  }
+  
+  .dashboard-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 20px;
+  }
+  
+  .chart-container {
+    background: white;
+    padding: 20px;
+    border-radius: var(--border-radius);
+  }
+  
+  .quick-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .action-btn {
+    width: 100%;
+    text-align: center;
+  }
+  
+  .recent-sprints {
+    margin-top: 30px;
+  }
+  
+  .sprint-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .sprint-item:last-child {
+    border-bottom: none;
+  }
+  
+  .sprint-progress {
+    height: 8px;
+    background-color: #e9ecef;
+    border-radius: 4px;
+    margin-top: 5px;
+  }
+  
+  .progress-bar {
+    height: 100%;
+    border-radius: 4px;
+    background-color: var(--primary);
+  }

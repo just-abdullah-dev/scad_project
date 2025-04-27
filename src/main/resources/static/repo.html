@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GitHub Repositories | Sprint Velocity Predictor</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 p-6">
+<header>
+    <div class="container">
+        <nav class="navbar">
+            <a href="index.html" class="navbar-brand">SprintPredictor</a>
+            <div class="nav-links">
+                <a href="dashboard.html">Dashboard</a>
+                <a href="repo.html">Repos & Issues</a>
+                <a href="sprints.html" class="active">Sprints</a>
+                <a href="predictions.html">Predictions</a>
+            </div>
+            <div class="dropdown">
+                <a href="#" class="d-flex align-items-center text-decoration-none dropdown-toggle" id="userDropdown" data-bs-toggle="dropdown">
+                    <!--            <img src="images/default-avatar.png" alt="User" class="rounded-circle me-2" width="32" height="32">-->
+                    <span id="userNameSpan">User</span>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-end">
+                    <li><a class="dropdown-item" href="profile.html">Profile</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="#" id="logout">Sign out</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+</header>
+<!-- Heading -->
+<h1 class="text-3xl font-bold mb-6 text-center">GitHub Dashboard</h1>
+
+<!-- Tabs -->
+<div class="flex justify-center mb-6">
+    <button id="reposTab" onclick="showTab('reposSection')" class="px-6 py-2 bg-blue-600 text-white rounded-l hover:bg-blue-700">Repositories</button>
+    <button id="issuesTab" onclick="showTab('issuesSection')" class="px-6 py-2 bg-gray-300 text-black rounded-r hover:bg-gray-400">Issues</button>
+</div>
+
+<!-- Repositories Section -->
+<div id="reposSection" class="">
+    <div id="repos" class="grid gap-6 md:grid-cols-2 lg:grid-cols-3"></div>
+</div>
+
+<!-- Issues Section -->
+<div id="issuesSection" class="hidden">
+    <div class="flex gap-4 mb-6">
+        <input
+                id="repoNameInput"
+                type="text"
+                placeholder="Enter repo name (e.g., next.js)"
+                class="border p-2 flex-1 rounded"
+        />
+        <button
+                onclick="fetchIssues()"
+                class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded"
+        >
+            Get Issues
+        </button>
+    </div>
+    <div id="issues" class="grid gap-6 md:grid-cols-2"></div>
+</div>
+
+<script src="js/repo.js"></script>
+<script>
+    function showTab(sectionId) {
+        const reposSection = document.getElementById('reposSection');
+        const issuesSection = document.getElementById('issuesSection');
+        const reposTab = document.getElementById('reposTab');
+        const issuesTab = document.getElementById('issuesTab');
+
+        if (sectionId === 'reposSection') {
+            reposSection.classList.remove('hidden');
+            issuesSection.classList.add('hidden');
+            reposTab.classList.add('bg-blue-600', 'text-white');
+            reposTab.classList.remove('bg-gray-300', 'text-black');
+            issuesTab.classList.add('bg-gray-300', 'text-black');
+            issuesTab.classList.remove('bg-blue-600', 'text-white');
+        } else {
+            reposSection.classList.add('hidden');
+            issuesSection.classList.remove('hidden');
+            issuesTab.classList.add('bg-blue-600', 'text-white');
+            issuesTab.classList.remove('bg-gray-300', 'text-black');
+            reposTab.classList.add('bg-gray-300', 'text-black');
+            reposTab.classList.remove('bg-blue-600', 'text-white');
+        }
+    }
+</script>
+<script src="js/auth.js"></script>
+</body>
+</html>
