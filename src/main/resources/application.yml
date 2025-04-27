@@ -23,8 +23,8 @@ spring:
       client:
         registration:
           github:
-            client-id: Ov23nqbQf
-            client-secret: 09e0825d4f4
+            client-id: 
+            client-secret: 
             scope:
               - repo
               - user
@@ -32,7 +32,7 @@ spring:
 github:
   api:
     base-url: https://api.github.com
-    token: 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
+    token: 
 
 sprintpredictor:
   app:
